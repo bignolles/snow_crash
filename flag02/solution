@@ -1,0 +1,6 @@
+ls ~ -> level02.pcap
+on analyse le pcap avec cloudshark.
+On tombe sur un packet contenant "Password:" de la part du server.
+On regarde les datas de tous les paquets suivant de la part du client, qui eppellent "ft_waNDReL0L"
+su flag02 #-> ft_waNDReL0L
+-> kooda2puivaav1idi4f57q8iq

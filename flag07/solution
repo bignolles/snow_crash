@@ -1,0 +1,7 @@
+ls ~ -> level07 (executable suid)
+ltrace ~/level07 2> ltrace.txt (Cf ./flag07/ltrace.txt) on remarque que le process appelle getenv(LOGNAME) puis asprintf, puis system("/bin/echo level07")
+Pas d'attaque par $PATH possible (system appelle echo via son path absolu), mais il semblerais que level07 se contente d'echo la variable d'env LOGNAME.
+Pour s'en convaincre : export LOGNAME="foobar", quand on execute level07, "foobar" s'affiche.
+on exute ./run.sh (Cf ./flag07/run.sh) -> fiumuikeil55xe9cu4dood66h
+
+gg ez mid

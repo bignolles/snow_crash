@@ -1,0 +1,8 @@
+cd
+ls -l . #-> level04.pl
+level04.pl est un script perl suid qui semble permettre d'ecouter sur le port 4747
+nc localhost 4747 #-> Ca fonctionne, donc le script est utilise par un autre process pour ecouter sur 4747
+On peut envoyer une variable x au script via une methode GET, qui sera recuperee par la sub routine x
+cette variable est utilise pour executer un `echo x` (en gros).
+on envois donc via get /?x=;getflag (qui donne, apres formatage : /?x=%3Bgetflag, il faut ecrire le ';' en hexa pour l'envoyer dans une methode GET)
+|-> ne2searoevaevoem4ov4ar8ap

