@@ -57,3 +57,28 @@ total 3
 -rw-r--r--  1 marene  2013_paris   38 May 30 18:26 script.sh
 -rw-r--r--  1 marene  2013_paris  741 May 30 18:26 solution
 ```
+
+## snowcrash.sh
+snowcrash.sh is a basic utility script that helps you keep track of your current level and password to access this level.
+All passwords are stored into their appropriate user directory in the file `.pass`
+The VM informations (IP and port) are stored in `./.snowcrash\_ip`
+The current user informations are stored in ./.key
+just launch `./snowcrash.sh` to log through ssh as the current registered user. The password will be copied into your clipboard
+
+```bash
+$ ls -l ./level01/.pass
+-rw-r--r--  1 marene  2013_paris  26 Jul 13 11:32 ./level01/.pass
+
+$ ls -la ./.snowcrash_ip
+-rw-r--r--  1 marene  2013_paris  31 Jul 13 11:29 ./.snowcrash_ip
+
+$ ls -la ./.key
+-rw-r--r--  1 marene  2013_paris  33 Jul 13 13:37 ./.key
+```
+### Options
+ - `--update-user levelXX` : If `levelYY` exists (*ie* if the directory `levelXX` exists and contains a `.pass` file), change the current user to `levelYY` and logs you as it
+ - `--update-vm ip port` : Changes the registered ip and port for the snowcrash vm
+ - `--add-user levelXX password` : If `levelXX` doesn't already exists, create a `levelXX` directory and write the provided password in `levelXX/.pass`
+ - `--whoami` : Shows which user is currently registered
+ - `--whatvm` : Shows current VM's port and IP
+ -- `--no-connect` : Prompts the ssh command line used to connect, but does not actually try to log in

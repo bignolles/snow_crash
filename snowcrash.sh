@@ -7,7 +7,13 @@ export VM_PATH="$BASE_DIR/.snowcrash_ip"
 updateUser() {
 	if [ ! -z "$1" ]
 	then
-		printf "user_id: %s\nuser_pass: %s\n" $1 `cat "./$1/.pass"` > "$KEY_PATH"
+		if [ -d "$BASE_DIR/$1" ] && [ -f "$BASE_DIR/$1/.pass" ]
+		then
+			printf "user_id: %s\nuser_pass: %s\n" $1 `cat "$BASE_DIR/$1/.pass"` > "$KEY_PATH"
+		else
+			printf "user %s does not exist\n" $1 1>&2
+			exit 1
+		fi
 	else
 		printf "updating user impossible : missing information!\n" 1>&2
 		exit 1
@@ -20,6 +26,25 @@ updateVm() {
 		printf "vm_ip: %s\nvm_port: %s\n" $1 $2 > "$VM_PATH"
 	else
 		printf "updating vm impossible : missing information!\n" 1>&2
+		exit 1
+	fi
+}
+
+addUser() {
+	if [ ! -z "$1" ] && [ ! -z "$2" ]
+	then
+		if [ ! -d "$BASE_DIR/$1" ] || [ ! -f "$BASE_DIR/$1/.pass" ]
+		then
+			mkdir -p "$BASE_DIR/$1"
+			printf "$2" > "$BASE_DIR/$1/.pass"
+			updateUser "$1"
+		else
+			printf "user %s already exists\n" $1
+			exit 1
+		fi
+	else
+		printf "%s\n" "--add-user : missing information!" 1>&2
+		exit 1
 	fi
 }
 
@@ -69,6 +94,9 @@ then
 		elif [ "$elem" == "--update-vm" ]
 		then
 			updateVm ${argsArray[i]} ${argsArray[i + 1]}
+		elif [ "$elem" == "--add-user" ]
+		then
+			addUser ${argsArray[i]} ${argsArray[i + 1]}
 		elif [ "$elem" == "--whoami" ]
 		then
 			whoAmI
