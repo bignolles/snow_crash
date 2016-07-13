@@ -1,0 +1,3 @@
+~/level10 [file] [host] verifie avec access(2) (donc avec l'uid de level10) si on acces en lecture au fichier [file], puis se connecte a [host]:6969,
+ouvre [file] avec open(2) (donc avec l'uid de flag10, vous me suivez?), et l'envois a host:6969. -> RACE CONDITION
+Donc, on cree /tmp/toto, puis on laisse faire main.c faire le reste!
