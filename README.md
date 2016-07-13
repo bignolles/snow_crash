@@ -76,7 +76,7 @@ $ ls -la ./.key
 -rw-r--r--  1 marene  2013_paris  33 Jul 13 13:37 ./.key
 ```
 ### Options
- - `--update-user levelXX` : If `levelYY` exists (*ie* if the directory `levelXX` exists and contains a `.pass` file), change the current user to `levelYY` and logs you as it
+ - `--update-user levelXX` : If `levelXX` exists (*ie* if the directory `levelXX` exists and contains a `.pass` file), change the current user to `levelXX` and logs you as it
  - `--update-vm ip port` : Changes the registered ip and port for the snowcrash vm
  - `--add-user levelXX password` : If `levelXX` doesn't already exists, create a `levelXX` directory and write the provided password in `levelXX/.pass`
  - `--whoami` : Shows which user is currently registered
