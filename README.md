@@ -81,4 +81,4 @@ $ ls -la ./.key
  - `--add-user levelXX password` : If `levelXX` doesn't already exists, create a `levelXX` directory and write the provided password in `levelXX/.pass`
  - `--whoami` : Shows which user is currently registered
  - `--whatvm` : Shows current VM's port and IP
- -- `--no-connect` : Prompts the ssh command line used to connect, but does not actually try to log in
+ - `--no-connect` : Prompts the ssh command line used to connect, but does not actually try to log in
