@@ -1,0 +1,11 @@
+cat /etc/passwd -> le passwd de flag01 n'a pas ete shadow, on a donc le password (crypte) de flag01! \0/
+on telecharge les sources de john, et on les scp dans sa vm:/tmp
+make clean generic : 
+
+cd /tmp/john-1.8.o
+make -C ./src/ clean generic
+cat /etc/passwd > ./passwd.lst #On ne garde que la ligne de flag01 dans le fichier, parce que pourquoi pas.
+./run/john ./passwd.lst
+./run/john --show ./passwd.lst # -> abcdefg
+su flag01
+getflag # -> f2av5il02puano7naaf6adaaf

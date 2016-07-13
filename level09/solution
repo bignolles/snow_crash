@@ -1,0 +1,9 @@
+ls ~ : token (on peut le lire) flag09 (on peut l'executer)
+cat token -> Gibberish nonsense
+./flag09 aaa -> abc
+./flag09 ayt -> azv
+On remarque que level09 reecris la chaine en decalant vers la droite chaque caractere de la valeure de sa position dans la chaine (en valeur ASCII)
+on ecris code.c (Cf ./flag09/code.c), qu'on compile
+gcc -o /tmp/decode /tmp/decode.c
+/tmp/decode `cat ~/token` -> f3iji1ju5yuevaus41q1afiuq
+su flag09 -> getflag -> s5cAJpM8ev6XHw998pRWG728z
