@@ -1,5 +1,0 @@
-ls -l ~ -> level06 (suid) et level06.php
-on remarque que level06 semble execve level06.php
-or: level06 fait un appel a preg_replace avec le modificateur 'e' -> On va pouvoir lui faire executer du code PHP! \o/
-On lui passe ne parametre le fichier script.txt (Cf ./flag06/script.txt)
-on execute : wiok45aaoguiboiki2tuin6ub

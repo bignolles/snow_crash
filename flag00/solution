@@ -1,5 +1,0 @@
-find / -user flag00 -perm -o+r 2> /dev/null ----> Trouver un fichier appartenant a flag00 que  l'on puisse lire
-|--> /usr/sbin/john ---> Le fichier john contient un password. On essaye de se log avec en tant que flag00, echec.
-On le decrypte (cesar + 15) -> Ca fonctionne.
-Password : nottoohardhere
- flag : x24ti5gi3x0ol2eh4esiuxias
