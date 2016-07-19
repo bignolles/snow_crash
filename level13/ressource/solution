@@ -1,0 +1,1 @@
+on ecrit toto.c afin de pouvoir hook getuid, puis on execute exploit.sh

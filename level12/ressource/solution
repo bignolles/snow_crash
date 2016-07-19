@@ -1,0 +1,4 @@
+on cree le fichier TOTO
+chmod 777 TOTO
+$(VM_IP):4646/?x=`/*/TOTO`&y=foobar
+TOTO est execute, et on en recupere la sortie dans /tmp/result
