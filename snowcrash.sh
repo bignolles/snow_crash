@@ -4,6 +4,36 @@ export BASE_DIR=$(dirname "$0")
 export KEY_PATH="$BASE_DIR/.key"
 export VM_PATH="$BASE_DIR/.snowcrash_ip"
 
+scpH2G() {
+	if [ ! -z "$1" ] && [ -f "$1" ]
+	then
+		getUserId
+		getVmId
+		echo "$user_pass" | pbcopy
+		scp -P "$vm_port" "$1" "$user_id"@"$vm_ip":/tmp
+	else
+		printf "%s : No such file\n" "$1" 1>&2
+	fi
+	exit 0
+}
+
+scpG2H() {
+	if [ ! -z "$1" ]
+	then
+		if [ -z "$2" ] && [ -d "$2" ]
+		then
+			path="."
+		else
+			path="$2"
+		fi
+		getUserId
+		getVmId
+		echo "$user_pass" | pbcopy
+		scp -P "$vm_port" "$user_id"@"$vm_ip":"/tmp/$1" "$path/"
+	fi
+	exit 0
+}
+
 updateUser() {
 	if [ ! -z "$1" ]
 	then
@@ -106,6 +136,12 @@ then
 		elif [ "$elem" == "--no-connect" ]
 		then
 			noConnect
+		elif [ "$elem" == "--scpH2G" ]
+		then
+			scpH2G ${argsArray[i]} 
+		elif [ "$elem" == "--scpG2H" ]
+		then
+			scpG2H ${argsArray[i]} ${argsArray[i + 1]}
 		fi
 	done
 fi

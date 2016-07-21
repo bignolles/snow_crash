@@ -1,0 +1,8 @@
+gdb -tui /bin/getflag
+une fois qu'on arrive apres l'appel a ptrace, on jump a 0x80489a8 (l'adresse a laquelle on devrait jumper si ptrace n'avait pas renvoye -1)
+ensuite, on break apres l'appel a getuid
+puis on set $eax a 3014 (l'uid de flag14)
+puis voila
+su flag14
+getflag.
+hopla
